@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sdg-deep: #0b3d2e;
+    --sdg-forest: #15573f;
+    --sdg-leaf: #1f7a52;
+    --sdg-spring: #3ba876;
+    --sdg-mist: #e6f2ec;
+    --sdg-sand: #f6f3ea;
+    --sdg-ink: #0f1f17;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: var(--sdg-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--sdg-spring);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(rgba(15,31,23,0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(14px) saturate(140%);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 1px 2px rgba(15,31,23,0.04), 0 12px 32px -12px rgba(15,31,23,0.14);
+  }
+
+  .shadow-lift {
+    box-shadow: 0 1px 2px rgba(15,31,23,0.05), 0 28px 60px -24px rgba(15,31,23,0.28);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes grow-bar {
+  from { width: 0%; }
+}
+.animate-grow-bar { animation: grow-bar 1.1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes count-ring {
+  from { stroke-dashoffset: var(--ring-circumference); }
+}
